@@ -41,7 +41,11 @@ This means every file can directly traced back to its collection time, enabling 
   - A device was not yet installed or in use at SESAME during the given year (e.g., unavailable in 2022 but operational and archived from 2023 onwards).
   - A PV was not being archived at that time but was added to the EPICS archiver in later years.
 
-## Cite this dataset 
+### Important Notes About Dataset 
+
+It is important to note that the dataset is not balanced between trip and no-trip events. Trip events, which represent actual beam interruptions, are naturally ***less frequent*** compared to the long periods of stable operation (no-trip). For example, over the collection period 2020–2023, only 222 validated trip events were identified, whereas thousands of no-trip intervals were available. This imbalance reflects the real operational environment of the synchrotron, where beam interruptions are rare but critical. In addition, the number of rows per file ***is not uniform***, since it depends on how each PV was archived. Monitored PVs are recorded only when their values change (event-driven), while scanned PVs are archived at fixed sampling rates (e.g., 10 readings per second). As a result, some files contain denser time series than others. Users of the dataset should take these characteristics into account when training models. 
+
+## Cite This Dataset 
 
 If you use this dataset in your research, please cite it as:
 ***Alzubi, M., Ghnemat, R., & Al Madi, N. (2025). SESAME Beam Availability Dataset [data set]***. ***Zenodo. https://doi.org/10.5281/zenodo.17074063***
