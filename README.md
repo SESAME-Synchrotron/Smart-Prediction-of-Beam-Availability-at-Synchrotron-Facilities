@@ -1,4 +1,4 @@
-# MFP
+# Smart Prediction of Beam Availability at Synchrotron Facilities
 SESAME's Machine Fault Prediction -- (Smart Prediction of Beam Availability at Synchrotron Facilities)
 
 # Introduction
@@ -25,7 +25,8 @@ The full dataset is openly available on Zenodo:
 # DOI
 
 10.5281/zenodo.17074063
-Please cite this DOI if you use the dataset in your research.
+
+> Please cite this DOI if you use the dataset in your research.
 
 
 
