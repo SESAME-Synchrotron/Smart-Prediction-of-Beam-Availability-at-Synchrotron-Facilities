@@ -50,4 +50,4 @@ It is important to note that the dataset is not balanced between trip and no-tri
 ## Cite This Dataset 
 
 If you use this dataset in your research, please cite it as:
-***Alzubi, M., Ghnemat, R., & Al Madi, N. (2025). SESAME Beam Availability Dataset [data set]***. ***Zenodo. https://doi.org/10.5281/zenodo.17074063***
+***Alzubi, M., Abbadi A., Ghnemat, R., & Al Madi, N. (2025). SESAME Beam Availability Dataset [SESAME Machine Dataset]***. ***Zenodo. https://doi.org/10.5281/zenodo.17074063***
