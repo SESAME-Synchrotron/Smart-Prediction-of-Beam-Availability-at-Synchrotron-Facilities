@@ -41,11 +41,7 @@ This means every file can directly traced back to its collection time, enabling 
   - A device was not yet installed or in use at SESAME during the given year (e.g., unavailable in 2022 but operational and archived from 2023 onwards).
   - A PV was not being archived at that time but was added to the EPICS archiver in later years.
 
-## DOI
+## Cite this dataset 
 
-10.5281/zenodo.17074063
-
-https://doi.org/10.5281/zenodo.17074063
-
-> Please cite this DOI if you use the dataset in your research.
-
+If you use this dataset in your research, please cite it as:
+***Alzubi, M., Ghnemat, R., & Al Madi, N. (2025). SESAME Beam Availability Dataset [data set]***. ***Zenodo. https://doi.org/10.5281/zenodo.17074063***
