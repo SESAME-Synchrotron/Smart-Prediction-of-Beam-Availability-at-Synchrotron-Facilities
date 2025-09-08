@@ -2,7 +2,7 @@
 SESAME's Machine Fault Prediction -- (Smart Prediction of Beam Availability at Synchrotron Facilities)
 
 # Introduction
-It is a project that aims to develop a smart system  that is integrated with different information sources at SESAME Synchrtotron to predict beam faults / interubts before they actually occur.
+This project aims to develop a smart system  that is integrated with different information sources at SESAME Synchrtotron to predict beam faults / interubts before they actually occur.
 
 The dataset presents a data-driven approach to improving the reliability of synchrotron operations. At the heart of this work is the creation of a carefully curated dataset built from SESAME’s machine operation records between March 2020 and December 2023. The dataset combines operator-logged trip events with stable no-trip intervals, capturing the dynamics of machine performance over several years. A large pool of more than 16,800 Process Variables (PVs) was originally archived through SESAME’s EPICS control system. With the guidance of domain experts, this pool was narrowed down to 263 meaningful signals, and then further refined to 169 PVs that were consistently available across all years. Each recorded trip event was validated by aligning operator logs with the actual machine data in the EPICS Archiver, ensuring accurate timestamps through a ±3-minute search and drop detection method. To account for differences in PV sampling strategies (event-driven vs. scanned signals). Using this pipeline, the dataset was expanded into multiple time-windowed samples (10 to 300 seconds), each labeled as either a trip or a no-trip event. The resulting dataset, with more than 200,000 labeled windows, represents a unique resource for developing and benchmarking machine learning and deep learning models in synchrotron reliability research.
 
@@ -17,16 +17,31 @@ All metadata comes as files under folder metadata directory, the list of files i
   - **metadata\2- Features_List of PVs_v0.2.xlsx**: This Excel file lists the Process Variables (PVs) considered in the study. It includes the identifiers and descriptions of PVs archived at SESAME that were evaluated as candidate features for predictive modeling. Out of an initial set of 263 PVs, a consistent subset of 169 PVs (common across 2020–2023) was selected in consultation with domain experts. the file helps users understand the signals contributing to the predictive models.
   - **metadata\3- Machine Statistic_CleanStatisticsWithExactTripTime**: This CSV file contains the validated trip statistics with exact timestamps refined from operator logs. Using the ±3-minute search and largest-drop method described in the paper, each trip time was corrected to align with the true event captured in the PV data. This cleaned dataset ensures accurate alignment of trip events with corresponding PV signals and forms a crucial input for building the labeled time-window datasets.
 
-# Dataset Description
-
 This repository hosts a sample dataset used in the paper “Smart Prediction of Beam Availability at Synchrotron Facilities”.
-The full dataset is openly available on Zenodo:
+The full dataset is openly available on Zenodo: https://zenodo.org/records/17074063?preview=1&token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6ImZiOGQyYjUzLTk5MmItNDk2MC04NGEyLWQwMzcyYjM4NjRiZSIsImRhdGEiOnt9LCJyYW5kb20iOiIzMGEwNGU0NjE4NmFlMDQ0YjY5NDc3MTk3YTUzYzlkZCJ9.Nb0OnCY3juvdwiceqA8LHNGWKkpWrL0Og8M173HATfu5FXii6ecgiUJvUK0-vUpDJKgNMtDhfX6n_juq2Y0c0Q 
+
+When browsing the dataset, detailed column descriptions can be found in the file **metadata/2- Features_List of PVs_v0.2.xlsx**, which documents the Process Variables (PVs) included in the study.
+- The **pvData/** directory contains two main subfolders:
+  - trip_raw/: This folder includes trip-event data that has been filtered and validated against operator logs. The raw operator-reported statistics were cleaned, corrected, and aligned with the actual machine signals from the EPICS archiver to ensure precise timestamps and reliable labels.
+  - noTrip_raw/: This folder contains samples of stable machine operation, randomly collected from the EPICS archiver between 2022 and 2024 during periods of full and reliable beamtime. These no-trip intervals serve as the negative class examples (label = 0) in the predictive modeling.
+Together, these two data sources form the foundation of the dataset, enabling the construction of balanced, labeled windows (trip vs. no-trip) that are essential for training and evaluating machine learning and deep learning models.
+
+- Each of the subfolders under pvData/trip_raw and pvData/noTrip_raw contains 10 additional subfolders, named **WS_XX**, where XX represents the time-window size in seconds. The available windows are 10, 20, 30, 40, 50, 60, 120, 180, 240, and 300 seconds.
+  - For trip data, each WS_XX folder includes PV samples extracted for the given number of seconds before the exact validated trip timestamp.
+  - For no-trip data, the WS_XX folders store PV samples collected during stable operation, with the same time-window sizes applied, ensuring consistency with the trip dataset.
+
+- Each subfolder (**WS_XX**) contains a set of CSV files named using the convention:
+- > YYYYMMDDTHHMMSS.csv, For example: 20231203T192156.csv 
+The date and time stamp in the filename indicates the exact event time:
+- For trip data, this corresponds to the validated timestamp of a beam interruption.
+- For no-trip data, it marks the precise moment when the sample of stable operation was collected.
+This means every file can directly traced back to its collection time, enabling reproducibility and chronological analyses. 
 
 # DOI
 
 10.5281/zenodo.17074063
 
+https://doi.org/10.5281/zenodo.17074063
+
 > Please cite this DOI if you use the dataset in your research.
-
-
 
