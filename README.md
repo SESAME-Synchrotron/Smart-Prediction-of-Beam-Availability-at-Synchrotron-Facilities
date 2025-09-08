@@ -17,8 +17,8 @@ All metadata comes as files under folder metadata directory, the list of files i
   - **metadata\2- Features_List of PVs_v0.2.xlsx**: This Excel file lists the Process Variables (PVs) considered in the study. It includes the identifiers and descriptions of PVs archived at SESAME that were evaluated as candidate features for predictive modeling. Out of an initial set of 263 PVs, a consistent subset of 169 PVs (common across 2020–2023) was selected in consultation with domain experts. the file helps users understand the signals contributing to the predictive models.
   - **metadata\3- Machine Statistic_CleanStatisticsWithExactTripTime**: This CSV file contains the validated trip statistics with exact timestamps refined from operator logs. Using the ±3-minute search and largest-drop method described in the paper, each trip time was corrected to align with the true event captured in the PV data. This cleaned dataset ensures accurate alignment of trip events with corresponding PV signals and forms a crucial input for building the labeled time-window datasets.
 
-This repository hosts a sample dataset used in the paper “Smart Prediction of Beam Availability at Synchrotron Facilities”.
-The full dataset is openly available on Zenodo: https://zenodo.org/records/17074063  
+<font color="red">This repository hosts a sample dataset used in the paper “Smart Prediction of Beam Availability at Synchrotron Facilities”.
+The full dataset is openly available on Zenodo: https://zenodo.org/records/17074063</font>   
 
 When browsing the dataset, detailed column descriptions can be found in the file **metadata/2- Features_List of PVs_v0.2.xlsx**, which documents the Process Variables (PVs) included in the study.
 - The **pvData/** directory contains two main subfolders:
